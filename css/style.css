@@ -1,3 +1,22 @@
 body {
     padding-top: 70px;
 }
+
+.show-options {
+    margin-top: 30px;
+}
+
+.options {
+    display: none;
+}
+
+
+/*#poke-pic {
+    height: 250px;
+    width: 250px;
+}*/
+
+.info {
+    overflow-y: scroll;
+    height: 300px;
+}
