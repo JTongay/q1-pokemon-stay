@@ -10,13 +10,26 @@ body {
     display: none;
 }
 
-
-/*#poke-pic {
+#poke-pic {
     height: 250px;
     width: 250px;
-}*/
+}
 
 .info {
     overflow-y: scroll;
     height: 300px;
+}
+
+.gens {
+    margin-top: 60px;
+}
+
+.poke-pic {
+    /*display: none;*/
+    height: 50px;
+    width: 50px;
+}
+
+#person {
+    display: none;
 }
