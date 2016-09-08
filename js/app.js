@@ -3,7 +3,6 @@ $( function () {
 
     //Variabal Declarations
     var genNum;
-    // var pokeNum = 1;
     var pokeName = $( '#poke-name' );
     var pokePic = $( '#poke-pic' );
     var lastPoke = $( '#last-poke' );
@@ -23,19 +22,20 @@ $( function () {
     var evoChain;
     var $browse = $( '.browse' );
     var $region = $( '.region' );
-    var $kanto = $( '#kanto' );
-    var $johto = $( '#johto' );
-    var $hoenn = $( '#hoenn' );
-    var $sinnoh = $( '#sinnoh' );
-    var $unova = $( '#unova' );
-    var $kalos = $( '#kalos' );
+    var kanto = 2
+    var johto = 3
+    var hoenn = 4
+    var sinnoh = 5
+    var unova = 6
+    var kalos = 7
     var $kantoCell = $( '#kanto-cell' );
     var $johtoCell = $( '#johto-cell' );
     var $hoennCell = $( '#hoenn-cell' );
     var $sinnohCell = $( '#sinnoh-cell' );
     var $unovaCell = $( '#unova-cell' );
     var $kalosCell = $( '#kalos-cell' );
-    var $pokeList = $( '.poke-list' )
+    var $pokeList = $( '.poke-list' );
+
 
 
     // <---------------Landing Page Stuff-------------->
@@ -54,113 +54,49 @@ $( function () {
 
 
     //Click Events
-    $( document ).on( 'click', '#last-poke', function () {
-        pokeNum--;
-        $.ajax( {
-            url: "http://pokeapi.co/api/v2/pokemon/" + pokeNum
-        } ).done( function ( data ) {
-            pokeName.text( capitalizeFirstLetter( data.name ) + " #" + data.game_indices[ 0 ].game_index )
-                // pokePic.attr( "src", data.sprites.front_default )
-            pokePic.attr( "src", goodPokePic( pokeNum ) )
-            $type.empty()
-            getType( data.types )
-            $measurements.text( heightConverter( data.height ) + " " + weightConverter( data.weight ) )
-            $stats.empty()
-            showStats( data.stats )
-            $abilities.empty()
-            abilities( data.abilities )
-            videoRequest( data.name + "pokemon anime" )
-
-        } )
-
-        $.ajax( {
-            url: "http://pokeapi.co/api/v2/pokemon-species/" + pokeNum
-        } ).done( function ( stuff ) {
-            habitatCheck( stuff.habitat )
-            $habitat.text( capitalizeFirstLetter( stuff.habitat.name ) )
-            $flavor.text( stuff.flavor_text_entries[ 1 ].flavor_text )
-            genNum = stuff.generation.url
-
-            $.ajax( {
-                url: genNum
-            } ).done( function ( things ) {
-                // console.log( things );
-                $origin.text( capitalizeFirstLetter( things.main_region.name ) )
-            } )
-        } )
-
-        // $.ajax( {
-        //     url: genNum
-        // } ).done( function ( things ) {
-        //     console.log( things );
-        // } )
-
-
-    } );
-    $( document ).on( 'click', '#next-poke', function () {
-        pokeNum++
-        $.ajax( {
-            url: "http://pokeapi.co/api/v2/pokemon/" + pokeNum
-        } ).done( function ( data ) {
-            pokeName.text( capitalizeFirstLetter( data.name ) + " #" + data.game_indices[ 0 ].game_index )
-                // pokePic.attr( "src", data.sprites.front_default )
-            pokePic.attr( "src", goodPokePic( pokeNum ) )
-            $type.empty()
-            getType( data.types )
-            $measurements.text( heightConverter( data.height ) + " " + weightConverter( data.weight ) )
-            $stats.empty();
-            showStats( data.stats )
-            $abilities.empty()
-            abilities( data.abilities )
-            videoRequest( data.name + "pokemon anime" )
-
-
-        } )
-
-
-        $.ajax( {
-            url: "http://pokeapi.co/api/v2/pokemon-species/" + pokeNum
-        } ).done( function ( stuff ) {
-            habitatCheck( stuff.habitat )
-            $habitat.text( capitalizeFirstLetter( stuff.habitat.name ) )
-            $flavor.text( stuff.flavor_text_entries[ 1 ].flavor_text )
-            genNum = stuff.generation.url
-
-            $.ajax( {
-                url: genNum
-            } ).done( function ( things ) {
-                // console.log( things );
-                $origin.text( capitalizeFirstLetter( things.main_region.name ) )
-            } )
-
-        } )
-
-        // $.ajax( {
-        //     url: genNum
-        // } ).done( function ( things ) {
-        //     console.log( things );
-        // } )
-
-    } )
 
     //<--------Page 4 Stuff----------->
-    $kanto.on( 'click', function ( event ) {
+    // $kanto.on( 'click', function ( event ) {
+    //     event.preventDefault();
+    //     $region.not( $kantoCell ).fadeOut( 1000 )
+    //     $.ajax( {
+    //         url: "http://pokeapi.co/api/v2/pokedex/2/"
+    //     } ).done( function ( data ) {
+    //         var pokeNumbers = data.pokemon_entries
+    //         for ( var i = 0; i < pokeNumbers.length; i++ ) {
+    //             var $pokeThumb = $( '<img>' )
+    //             $pokeThumb.attr( "src", "http://veekun.com/dex/media/pokemon/dream-world/" + pokeNumbers[ i ].entry_number + ".svg" );
+    //             $pokeThumb.attr( "id", pokeNumbers[ i ].entry_number )
+    //             $pokeThumb.addClass( "poke-pic" );
+    //             $pokeList.append( $pokeThumb )
+    //                 // console.log( $pokeThumb );
+    //
+    //         }
+    //     } )
+    // } )
+    $( document ).on( 'click', '.browse', function ( event ) {
         event.preventDefault();
-        $region.not( $kantoCell ).fadeOut( 1000 )
-        $.ajax( {
-            url: "http://pokeapi.co/api/v2/pokedex/2/"
-        } ).done( function ( data ) {
-            var pokeNumbers = data.pokemon_entries
-            for ( var i = 0; i < pokeNumbers.length; i++ ) {
-                var $pokeThumb = $( '<img>' )
-                $pokeThumb.attr( "src", "http://veekun.com/dex/media/pokemon/dream-world/" + pokeNumbers[ i ].entry_number + ".svg" );
-                $pokeThumb.attr( "id", pokeNumbers[ i ].entry_number )
-                $pokeThumb.addClass( "poke-pic" );
-                $pokeList.append( $pokeThumb )
-                    // console.log( $pokeThumb );
-
-            }
-        } )
+        var chosenCell = $( this ).parent().parent().prev().parent();
+        $region.not( chosenCell ).fadeOut( 1000 );
+        chosenCell.parent().attr( "class", "col-md-12 text-center" )
+        $browse.remove()
+        console.log( chosenCell );
+        // pokeDex()
+        if ( chosenCell.hasClass( "2" ) ) {
+            pokeDex( kanto )
+        }
+        if ( chosenCell.hasClass( "3" ) ) {
+            pokeDex( johto )
+        }
+        if ( chosenCell.hasClass( "4" ) ) {
+            pokeDex( hoenn )
+        }
+        if ( chosenCell.hasClass( "5" ) ) {
+            pokeDex( sinnoh )
+        }
+        if ( chosenCell.hasClass( "6" ) ) {
+            pokeDex( unova )
+        }
     } )
 
     $( document ).on( 'click', '.poke-pic', function ( event ) {
@@ -170,6 +106,14 @@ $( function () {
         // console.log( "what the fuck" );
         $( '.information-page' ).show()
         infoPage( chosen )
+        lastPoke.on( 'click', function ( event ) {
+            event.preventDefault()
+            infoPage( chosen-- )
+        } )
+        nextPoke.on( 'click', function ( event ) {
+            event.preventDefault()
+            infoPage( chosen++ )
+        } )
     } )
 
 
@@ -234,8 +178,8 @@ $( function () {
     }
 
     function habitatCheck( val ) {
-        if ( val == false ) {
-            return "No Entry Listed"
+        if ( val === null ) {
+            $habitat.text( "No Entry Listed" )
         } else {
             return val;
         }
@@ -248,7 +192,6 @@ $( function () {
         sprites.done( function ( data ) {
                 // console.log( data );
                 pokeName.text( capitalizeFirstLetter( data.name ) + " #" + data.game_indices[ 0 ].game_index )
-                    // pokePic.attr( "src", data.sprites.front_default )
                 pokePic.attr( "src", goodPokePic( num ) )
                 $type.empty()
                 getType( data.types )
@@ -266,6 +209,7 @@ $( function () {
         } ).done( function ( stuff ) {
             console.log( stuff );
             habitatCheck( stuff.habitat )
+            
             $habitat.text( capitalizeFirstLetter( stuff.habitat.name ) )
             $flavor.text( stuff.flavor_text_entries[ 1 ].flavor_text )
             genNum = stuff.generation.url
@@ -273,7 +217,7 @@ $( function () {
             $.ajax( {
                 url: genNum
             } ).done( function ( things ) {
-                // console.log( things );
+                console.log( things );
                 $origin.text( capitalizeFirstLetter( things.main_region.name ) )
             } )
         } )
@@ -281,10 +225,102 @@ $( function () {
         return num;
     }
 
+    function pokeDex( generation ) {
+        $.ajax( {
+            url: "http://pokeapi.co/api/v2/pokedex/1/"
+        } ).done( function ( data ) {
+            console.log(data);
+            var pokeNumbers = data.pokemon_entries;
+            if ( generation === kanto ) {
+                for ( var i = 0; i < 151; i++ ) {
+                    var $pokeThumb = $( '<img>' )
+                    var generationNumbers = pokeNumbers[ i ].entry_number;
+                    $pokeThumb.attr( "src", "http://veekun.com/dex/media/pokemon/dream-world/" + generationNumbers + ".svg" );
+                    $pokeThumb.attr( "id", generationNumbers )
+                    $pokeThumb.addClass( "poke-pic" );
+                    $pokeList.append( $pokeThumb )
+                }
+            }
+            if ( generation === johto ) {
+                for ( var i = 151; i < 251; i++ ) {
+                    var $pokeThumb = $( '<img>' )
+                    var generationNumbers = pokeNumbers[ i ].entry_number;
+                    $pokeThumb.attr( "src", "http://veekun.com/dex/media/pokemon/dream-world/" + generationNumbers + ".svg" );
+                    $pokeThumb.attr( "id", generationNumbers )
+                    $pokeThumb.addClass( "poke-pic" );
+                    $pokeList.append( $pokeThumb )
+                }
+            }
+            if ( generation === hoenn ) {
+                for ( var i = 251; i < 386; i++ ) {
+                    var $pokeThumb = $( '<img>' )
+                    var generationNumbers = pokeNumbers[ i ].entry_number;
+                    $pokeThumb.attr( "src", "http://veekun.com/dex/media/pokemon/dream-world/" + generationNumbers + ".svg" );
+                    $pokeThumb.attr( "id", generationNumbers )
+                    $pokeThumb.addClass( "poke-pic" );
+                    $pokeList.append( $pokeThumb )
+                }
+            }
+            if ( generation === sinnoh ) {
+                for ( var i = 386; i < 493; i++ ) {
+                    var $pokeThumb = $( '<img>' )
+                    var generationNumbers = pokeNumbers[ i ].entry_number;
+                    $pokeThumb.attr( "src", "http://veekun.com/dex/media/pokemon/dream-world/" + generationNumbers + ".svg" );
+                    $pokeThumb.attr( "id", generationNumbers )
+                    $pokeThumb.addClass( "poke-pic" );
+                    $pokeList.append( $pokeThumb )
+                }
+            }
+            if ( generation === unova ) {
+                for ( var i = 493; i < 649; i++ ) {
+                    var $pokeThumb = $( '<img>' )
+                    var generationNumbers = pokeNumbers[ i ].entry_number;
+                    $pokeThumb.attr( "src", "http://veekun.com/dex/media/pokemon/dream-world/" + generationNumbers + ".svg" );
+                    $pokeThumb.attr( "id", generationNumbers )
+                    $pokeThumb.addClass( "poke-pic" );
+                    $pokeList.append( $pokeThumb )
+                }
+            }
+
+        } )
+    }
+
 
 
 
 } )
+
+
+//<---Revisit this------------->
+
+// evoChain = stuff.evolution_chain.url
+// $.ajax( {
+//     url: evoChain
+// } ).done( function ( things ) {
+//     //Final Stage
+//     console.log( things.chain.evolves_to[ 0 ].evolves_to[ 0 ].species.name );
+//     //Medium Stage
+//     console.log( things.chain.evolves_to[ 0 ].species.name );
+//     var medStage = things.chain.evolves_to[ 0 ].species.name;
+//     var finalStage = things.chain.evolves_to[ 0 ].evolves_to[ 0 ].species.name
+//     $evoChain.text( capitalizeFirstLetter( medStage ) + capitalizeFirstLetter( finalStage ) )
+//
+// } )
+
+//     }
+//     if ( generation === johto ) {
+//         $pokeThumb.attr( "src", "http://veekun.com/dex/media/pokemon/dream-world/" + ( generationNumbers ) + ".svg" );
+//     }
+//     if ( generation === hoenn ) {
+//         $pokeThumb.attr( "src", "http://veekun.com/dex/media/pokemon/dream-world/" + ( generationNumbers + 151 ) + ".svg" );
+//     }
+//     $pokeThumb.attr( "id", generationNumbers )
+//     $pokeThumb.addClass( "poke-pic" );
+//     $pokeList.append( $pokeThumb )
+//         // console.log( $pokeThumb );
+//
+// }
+
 
 
 //<---Revisit this------------->
