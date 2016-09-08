@@ -34,8 +34,8 @@ $( function () {
     var $unovaCell = $( '#unova-cell' );
     var $kalosCell = $( '#kalos-cell' );
     var $pokeList = $( '.poke-list' );
-
-
+    var $textbox = $('#textbox');
+    var $submit = $('#submit');
 
     // <---------------Landing Page Stuff-------------->
     $( document ).on( 'click', '.show-options', function () {
@@ -44,9 +44,26 @@ $( function () {
 
     // <----------------PokeInfo Page Stuff------------>
 
-    //Click Events
+    $(document).on('click', '#submit', function(event){
+      event.preventDefault();
+      var searched = $textbox.val()
+      infoPage(searched);
+      $textbox.val("")
+      $region.hide();
+      $( '.information-page' ).show();
+      lastPoke.on( 'click', function ( event ) {
+          event.preventDefault()
+          infoPage( searched-- )
+      } )
+      nextPoke.on( 'click', function ( event ) {
+          event.preventDefault()
+          infoPage( searched++ )
+      } )
 
-    //<--------Page 4 Stuff----------->
+
+    })
+
+    //Click Events
     $( document ).on( 'click', '.browse', function ( event ) {
         event.preventDefault();
         var chosenCell = $( this ).parent().parent().prev().parent();

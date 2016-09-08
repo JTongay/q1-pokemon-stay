@@ -3,7 +3,7 @@ $(function(){
 paper.install( window );
 window.onload = function () {
     paper.setup( 'myCanvas' );
-    var pokeCount = 385;
+    var pokeCount = 648;
     var $information = $('.information-page');
 
     var genNum;
@@ -50,15 +50,15 @@ window.onload = function () {
         console.log(pokemon);
         var $pokeBall = $('<img>');
         $pokeBall.attr("value",randomPoke);
-        $pokeBall.addClass("pokeball")
+        $pokeBall.addClass("pokeball col-md-1")
         $pokeBall.attr("src", "images/poke-ball.png");
         $('#poke-sprites').append($pokeBall)
             // get sprite size
-        pokemon.scale( 0.3 );
+        pokemon.scale( 0.2 );
         var hitsY = false;
         var hitSide = false;
-        var x = 1;
-        var y = -5;
+        var x = -1;
+        var y = 0;
         pokemon.onFrame = function ( event ) {
             this.rotate( 3 );
             //Y - Axis
