@@ -3,7 +3,7 @@ $( function () {
 
     //Variabal Declarations
     var genNum;
-    var pokeNum = 1;
+    // var pokeNum = 1;
     var pokeName = $( '#poke-name' );
     var pokePic = $( '#poke-pic' );
     var lastPoke = $( '#last-poke' );
@@ -37,9 +37,6 @@ $( function () {
     var $kalosCell = $( '#kalos-cell' );
     var $pokeList = $( '.poke-list' )
 
-    var sprites = $.ajax( {
-        url: "http://pokeapi.co/api/v2/pokemon/" + pokeNum
-    } )
 
     // <---------------Landing Page Stuff-------------->
     $( document ).on( 'click', '.show-options', function () {
@@ -47,7 +44,7 @@ $( function () {
     } )
 
     // <----------------PokeInfo Page Stuff------------>
-    infoPage( pokeNum )
+    // infoPage( pokeNum )
 
     // $.ajax( {
     //     url: genNum
@@ -153,18 +150,6 @@ $( function () {
         $.ajax( {
             url: "http://pokeapi.co/api/v2/pokedex/2/"
         } ).done( function ( data ) {
-            // console.log( data );
-            // data.pokemon_entries.forEach( function ( num ) {
-            //     pokeNum = num.entry_number;
-            //     var $pokeThumb = $( '<img>' )
-            //     $pokeThumb.attr( "src", "http://veekun.com/dex/media/pokemon/dream-world/" + num.entry_number + ".svg" );
-            //     // $pokeThumb.attr( "href", "3.html" )
-            //     $pokeThumb.addClass( "poke-pic" );
-            //     $pokeList.append( $pokeThumb )
-            //     $( ".poke-pic" ).on( 'click', function () {
-            //         console.log( pokeNum );
-            //     } )
-            // } )
             var pokeNumbers = data.pokemon_entries
             for ( var i = 0; i < pokeNumbers.length; i++ ) {
                 var $pokeThumb = $( '<img>' )
@@ -183,8 +168,8 @@ $( function () {
         var chosen = $( this ).attr( "id" );
         console.log( chosen );
         // console.log( "what the fuck" );
+        $( '.information-page' ).show()
         infoPage( chosen )
-        window.location.href = "3.html"
     } )
 
 
@@ -264,7 +249,7 @@ $( function () {
                 // console.log( data );
                 pokeName.text( capitalizeFirstLetter( data.name ) + " #" + data.game_indices[ 0 ].game_index )
                     // pokePic.attr( "src", data.sprites.front_default )
-                pokePic.attr( "src", goodPokePic( pokeNum ) )
+                pokePic.attr( "src", goodPokePic( num ) )
                 $type.empty()
                 getType( data.types )
                 $measurements.text( heightConverter( data.height ) + " " + weightConverter( data.weight ) )
@@ -277,7 +262,7 @@ $( function () {
             } )
             // <-----------------More PokeInfo-------------------->
         $.ajax( {
-            url: "http://pokeapi.co/api/v2/pokemon-species/" + pokeNum
+            url: "http://pokeapi.co/api/v2/pokemon-species/" + num
         } ).done( function ( stuff ) {
             console.log( stuff );
             habitatCheck( stuff.habitat )
@@ -292,6 +277,8 @@ $( function () {
                 $origin.text( capitalizeFirstLetter( things.main_region.name ) )
             } )
         } )
+
+        return num;
     }
 
 

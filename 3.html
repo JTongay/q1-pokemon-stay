@@ -58,66 +58,153 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-1">
-                <a href="#" class="thumbnail" id="last-poke">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
+            <div class="col-md-12">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                </div>
+                <!-- /input-group -->
             </div>
-            <div class="col-md-10">
-
-                <h3 class="text-center" id="poke-name"></h3>
-
-            </div>
-
-            <div class="col-md-1">
-                <a href="#" class="thumbnail" id="next-poke">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
-            </div>
+            <!-- /.col-lg-6 -->
         </div>
-
+        <!-- /.r -->
     </div>
 
-    <div class="container">
 
-        <img src="" class="img-responsive center-block" id="poke-pic" alt="" />
-        <h3 class="text-center" id="poke-dex-num"></h3>
-
-
-    </div>
-
-    <div class="container text-center">
+    <div class="container gens">
         <div class="row">
-            <div class="col-md-5">
-                <section class="info">
-                    <h3>Type:</h3>
-                    <span id="type"></span>
-                    <h3>Measurements:</h3>
-                    <span id="measurements"></span>
-                    <h3>Habitat:</h3>
-                    <span id="habitat"></span>
-                    <h3>Flavor Text:</h3>
-                    <span id="flavor">flavor text here</span>
-                    <h3>Base Stats:</h3>
-                    <span id="stats"></span>
-                    <h3>Abilities:</h3>
-                    <span id="abilities"></span>
-                    <h3>Origin Region</h3>
-                    <span id="origin">origin here</span>
-                </section>
-            </div>
-            <div class="col-md-2">
-
-            </div>
-
-            <section class="col-md-5">
-                <div class="external">
-                    <div class="embed-responsive embed-responsive-4by3">
-                        <iframe class="embed-responsive-item" id="video" src=""></iframe>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail region" id="kanto-cell">
+                    <img src="images/g-1.png" alt="...">
+                    <div class="caption">
+                        <h3>Kanto Region</h3>
+                        <p><a href="#" class="btn btn-default browse" id="kanto" role="button">Browse</a></p>
                     </div>
                 </div>
-            </section>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail region" id="johto-cell">
+                    <img src="images/g-2.png" alt="...">
+                    <div class="caption">
+                        <h3>Johto Region</h3>
+                        <p><a href="#" class="btn btn-default browse" id="johto" role="button">Browse</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail region" id="hoenn-cell">
+                    <img src="images/g-3.png" alt="...">
+                    <div class="caption">
+                        <h3>Hoenn Region</h3>
+                        <p><a href="#" class="btn btn-default browse" id="hoenn" role="button">Browse</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container gens">
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail region" id="sinnoh-cell">
+                    <img src="images/g-4.png" alt="...">
+                    <div class="caption">
+                        <h3>Sinnoh Region</h3>
+                        <p><a href="#" class="btn btn-default browse" id="sinnoh" role="button">Browse</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail region" id="unova-cell">
+                    <img src="images/g-5.png" alt="...">
+                    <div class="caption">
+                        <h3>Unova Region</h3>
+                        <p><a href="#" class="btn btn-default browse" id="unova" role="button">Browse</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail region" id="kalos-cell">
+                    <img src="images/g-6.png" alt="...">
+                    <div class="caption">
+                        <h3>Kalos Region</h3>
+                        <p><a href="#" class="btn btn-default browse" id="kalos" role="button">Browse</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row poke-list">
 
+        </div>
+    </div>
+    <div class="information-page">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1">
+                    <a href="#" class="thumbnail" id="last-poke">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                </div>
+                <div class="col-md-10">
+
+                    <h3 class="text-center" id="poke-name"></h3>
+
+                </div>
+
+                <div class="col-md-1">
+                    <a href="#" class="thumbnail" id="next-poke">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+
+            <img src="" class="img-responsive center-block" id="poke-pic" alt="" />
+            <h3 class="text-center" id="poke-dex-num"></h3>
+
+
+        </div>
+
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-5">
+                    <section class="info">
+                        <h3>Type:</h3>
+                        <span id="type"></span>
+                        <h3>Measurements:</h3>
+                        <span id="measurements"></span>
+                        <h3>Habitat:</h3>
+                        <span id="habitat"></span>
+                        <h3>Flavor Text:</h3>
+                        <span id="flavor">flavor text here</span>
+                        <h3>Base Stats:</h3>
+                        <span id="stats"></span>
+                        <h3>Abilities:</h3>
+                        <span id="abilities"></span>
+                        <h3>Origin Region</h3>
+                        <span id="origin">origin here</span>
+                    </section>
+                </div>
+                <div class="col-md-2">
+
+                </div>
+
+                <section class="col-md-5">
+                    <div class="external">
+                        <div class="embed-responsive embed-responsive-4by3">
+                            <iframe class="embed-responsive-item" id="video" src=""></iframe>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
         </div>
     </div>
 

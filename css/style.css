@@ -33,3 +33,7 @@ body {
 #person {
     display: none;
 }
+
+.information-page {
+    display: none;
+}
