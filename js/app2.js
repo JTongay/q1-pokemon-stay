@@ -236,7 +236,7 @@ window.onload = function () {
 
      function caughtData(num){
        var sprites = $.ajax( {
-           url: "http://pokeapi.co/api/v2/pokemon/" + num
+           url: "https://pokeapi.co/api/v2/pokemon/" + num
        } )
        sprites.done( function ( data ) {
                // console.log( data );
@@ -254,7 +254,7 @@ window.onload = function () {
            } )
            // <-----------------More PokeInfo-------------------->
        $.ajax( {
-           url: "http://pokeapi.co/api/v2/pokemon-species/" + num
+           url: "https://pokeapi.co/api/v2/pokemon-species/" + num
        } ).done( function ( stuff ) {
            console.log( stuff );
            habitatCheck( stuff.habitat )

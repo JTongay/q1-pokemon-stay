@@ -178,7 +178,7 @@ $( function () {
 
     function infoPage( num ) {
         var sprites = $.ajax( {
-            url: "http://pokeapi.co/api/v2/pokemon/" + num
+            url: "https://pokeapi.co/api/v2/pokemon/" + num
         } )
         sprites.done( function ( data ) {
                 // console.log( data );
@@ -196,7 +196,7 @@ $( function () {
             } )
             // <-----------------More PokeInfo-------------------->
         $.ajax( {
-            url: "http://pokeapi.co/api/v2/pokemon-species/" + num
+            url: "https://pokeapi.co/api/v2/pokemon-species/" + num
         } ).done( function ( stuff ) {
             console.log( stuff );
             habitatCheck( stuff.habitat )
@@ -218,7 +218,7 @@ $( function () {
 
     function pokeDex( generation ) {
         $.ajax( {
-            url: "http://pokeapi.co/api/v2/pokedex/1/"
+            url: "https://pokeapi.co/api/v2/pokedex/1/"
         } ).done( function ( data ) {
             console.log(data);
             var pokeNumbers = data.pokemon_entries;
