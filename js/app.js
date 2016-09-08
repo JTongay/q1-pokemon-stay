@@ -44,36 +44,10 @@ $( function () {
     } )
 
     // <----------------PokeInfo Page Stuff------------>
-    // infoPage( pokeNum )
-
-    // $.ajax( {
-    //     url: genNum
-    // } ).done( function ( things ) {
-    //     console.log( things );
-    // } )
-
 
     //Click Events
 
     //<--------Page 4 Stuff----------->
-    // $kanto.on( 'click', function ( event ) {
-    //     event.preventDefault();
-    //     $region.not( $kantoCell ).fadeOut( 1000 )
-    //     $.ajax( {
-    //         url: "http://pokeapi.co/api/v2/pokedex/2/"
-    //     } ).done( function ( data ) {
-    //         var pokeNumbers = data.pokemon_entries
-    //         for ( var i = 0; i < pokeNumbers.length; i++ ) {
-    //             var $pokeThumb = $( '<img>' )
-    //             $pokeThumb.attr( "src", "http://veekun.com/dex/media/pokemon/dream-world/" + pokeNumbers[ i ].entry_number + ".svg" );
-    //             $pokeThumb.attr( "id", pokeNumbers[ i ].entry_number )
-    //             $pokeThumb.addClass( "poke-pic" );
-    //             $pokeList.append( $pokeThumb )
-    //                 // console.log( $pokeThumb );
-    //
-    //         }
-    //     } )
-    // } )
     $( document ).on( 'click', '.browse', function ( event ) {
         event.preventDefault();
         var chosenCell = $( this ).parent().parent().prev().parent();
