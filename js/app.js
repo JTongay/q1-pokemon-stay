@@ -181,7 +181,8 @@ $( function () {
         if ( val === null ) {
             $habitat.text( "No Entry Listed" )
         } else {
-            return val;
+          $habitat.text(val.name)
+            // return val;
         }
     }
 
@@ -209,8 +210,8 @@ $( function () {
         } ).done( function ( stuff ) {
             console.log( stuff );
             habitatCheck( stuff.habitat )
-            
-            $habitat.text( capitalizeFirstLetter( stuff.habitat.name ) )
+
+            // $habitat.text( capitalizeFirstLetter( stuff.habitat.name ) )
             $flavor.text( stuff.flavor_text_entries[ 1 ].flavor_text )
             genNum = stuff.generation.url
 
