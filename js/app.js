@@ -1,6 +1,5 @@
 $( function () {
 
-
     //Variabal Declarations
     var genNum;
     var pokeName = $( '#poke-name' );
@@ -92,12 +91,12 @@ $( function () {
 
 
     //<----------Helper Functions---------------->
-    function capitalizeFirstLetter( string ) {
+   function capitalizeFirstLetter( string ) {
         return string.charAt( 0 ).toUpperCase() + string.slice( 1 );
 
     }
 
-    function videoRequest( searchTerm ) {
+   function videoRequest( searchTerm ) {
         var params = {
                 q: searchTerm,
                 r: "json",
@@ -113,7 +112,7 @@ $( function () {
         } )
     }
 
-    function getType( array ) {
+   function getType( array ) {
         for ( var i = 0; i < array.length; i++ ) {
             // console.log( array[ i ].type.name );
             if ( i > 1 ) {
@@ -127,31 +126,31 @@ $( function () {
         }
     }
 
-    function goodPokePic( num ) {
+   function goodPokePic( num ) {
         return "http://veekun.com/dex/media/pokemon/dream-world/" + num + ".svg"
     }
 
-    function heightConverter( height ) {
+   function heightConverter( height ) {
         return height * 10 + "cm";
     }
 
-    function weightConverter( weight ) {
+   function weightConverter( weight ) {
         return weight / 10 + "kg";
     }
 
-    function showStats( arr ) {
+   function showStats( arr ) {
         for ( var i = 0; i < arr.length; i++ ) {
             $stats.append( capitalizeFirstLetter( arr[ i ].stat.name ) + ": " + arr[ i ].base_stat + "" + "<br>" )
         }
     }
 
-    function abilities( arr ) {
+   function abilities( arr ) {
         for ( var i = 0; i < arr.length; i++ ) {
             $abilities.append( capitalizeFirstLetter( arr[ i ].ability.name ) + "<br>" )
         }
     }
 
-    function habitatCheck( val ) {
+ function habitatCheck( val ) {
         if ( val === null ) {
             $habitat.text( "No Entry Listed" )
         } else {
@@ -259,7 +258,6 @@ $( function () {
 
         } )
     }
-
 
 
 
