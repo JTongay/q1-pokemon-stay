@@ -101,6 +101,7 @@ window.onload = function () {
                 }
             }
 
+
             if(this.intersects(person)){
               console.log("hit");
               this.visible = false;
@@ -127,6 +128,12 @@ window.onload = function () {
 
     var person = new Raster( "person" )
     person.position = view.center
+
+    // var ship = new Path.Rectangle( new Point( 200, 200 ), new Size( 100, 50 ) );
+    // ship.style = {
+    //         fillColor: "blue",
+    //         strokeColor: "red"
+    //     }
 
     person.scale( 0.2 )
     person.onFrame = function ( event ) {
@@ -159,7 +166,7 @@ window.onload = function () {
     $(document).on('click', '.pokeball', function(event){
       event.preventDefault();
       $information.fadeIn(1000);
-      $(this).css("backgroundColor", "blue")
+      $(this).css("backgroundColor", "#A9A9A9")
 
       var chosenOne = $(this).attr("value");
       caughtData(chosenOne);

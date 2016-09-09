@@ -1,5 +1,21 @@
 body {
     padding-top: 70px;
+    font-family: "Ubuntu Condensed", sans-serif;
+    background-color: #DEDEDE;
+}
+
+@font-face {
+    font-family: "pokefont";
+    font-size: 4em;
+    src: local("pokefont"), url("../src/pokefont.otf") format("opentype");
+    /*src: local("☺"),
+    url("type/filename.woff") format("woff"),
+    url("type/filename.otf") format("opentype"),
+    url("type/filename.svg#filename") format("svg");*/
+}
+
+.title {
+    font-family: "pokefont", sans-serif;
 }
 
 .show-options {
@@ -30,10 +46,32 @@ body {
     width: 50px;
 }
 
+.poke-pic:hover {
+    cursor: pointer;
+    box-shadow: 0 1px 1px black;
+    background-color: white;
+}
+
 #person {
     display: none;
 }
 
+.canvas {
+    background-image: linear-gradient( to top right, green, blue);
+}
+
 .information-page {
     display: none;
+}
+
+.text {
+    font-size: 1.15em;
+}
+
+.pokeball:hover {
+    cursor: pointer;
+    box-shadow: 0 1px 2px #ff2002;
+}
+
+
 }

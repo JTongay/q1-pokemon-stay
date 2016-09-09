@@ -66,6 +66,8 @@ $( function () {
     //Click Events
     $( document ).on( 'click', '.browse', function ( event ) {
         event.preventDefault();
+        $textbox.hide()
+        $submit.hide()
         var chosenCell = $( this ).parent().parent().prev().parent();
         $region.not( chosenCell ).fadeOut( 1000 );
         chosenCell.parent().attr( "class", "col-md-12 text-center" )
