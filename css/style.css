@@ -14,6 +14,10 @@ body {
     url("type/filename.svg#filename") format("svg");*/
 }
 
+.landing-page {
+    background-color: #ff5454;
+}
+
 .title {
     font-family: "pokefont", sans-serif;
 }
